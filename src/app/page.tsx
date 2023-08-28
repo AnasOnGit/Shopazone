@@ -23,7 +23,7 @@ export default async function Home() {
     rating: Object,
   }
 
- const productData = await fetch(process.env.URL + '/api/products');
+ const productData = await fetch(process.env.NEXT_URL + '/api/products');
   const productsList = await productData.json();
 
   type Product = {

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import products from "../products.json";
+
 
 interface Product {
   title: string;
@@ -8,8 +8,8 @@ interface Product {
 }
 
 export async function GET(request: any) {
-  // const { searchParams } = new URL(process.env.URL + request.url);
-  
+  let productsRes = await fetch(`${process.env.NEXT_URL}/products.json`);
+  let products = await productsRes.json();
   // Extract the search term and category from the query parameters
   const searchTerm = request.nextUrl.searchParams.get('search-term');
   const category = request.nextUrl.searchParams.get('category');

@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import products from '../products.json';
+// import products from '../products.json';
 
 export async function GET(request:any,) {
-
+  let products = await fetch(`${process.env.NEXT_URL}/data.json`);
   const limit = request.nextUrl.searchParams.get('limit');
 
   if (limit) {

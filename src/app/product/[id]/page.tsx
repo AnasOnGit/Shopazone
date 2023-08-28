@@ -43,7 +43,7 @@ async function ProductPage({ params }: Props) {
   // Create the delivery message
   const deliveryMessage = `Order now and get delivery between ${minDeliveryDateString} - ${maxDeliveryDateString}.`;
   const productData = await fetch(
-    process.env.URL + `/api/products/${params.id}`
+    process.env.NEXT_URL + `/api/products/${params.id}`
   );
   const productInfo = await productData.json();
 

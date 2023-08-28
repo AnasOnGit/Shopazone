@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server'
-import products from "../../products.json"
+
  
 export async function GET(request: Request,{params}:{params: {id: string}}) {
-    const product = products.find(p => p.id === parseInt(params.id));
+  let productsRes = await fetch(`${process.env.NEXT_URL}/products.json`);
+  let products = await productsRes.json(); 
+  const product = products.find((p :any)  => p.id === parseInt(params.id));
 
     if (product) {
       // If a matching product is found, return it as JSON
