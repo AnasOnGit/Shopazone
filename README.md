@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shopazone - Next.js E-commerce Store
 
-## Getting Started
+![Shopazone Logo]('./public/logo.png') 
 
-First, run the development server:
+Welcome to Shopazone, an experimental e-commerce project built with Next.js, TypeScript, Tailwind CSS, React Query (Transquery), and Redux. This project served as my exploration of the latest features and capabilities offered by Next.js and the modern React ecosystem.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Project Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Duration:** Just over a week
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Challenges:** While I aimed to keep this project small, it presented a few unexpected challenges. Debugging and solving some stubborn bugs took some time, but it was all part of the learning process.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## API Integration
 
-## Learn More
+Initially, I had plans to build my own API for this project, but I stumbled upon the [Fake Store API](https://fakestoreapi.com/docs), which provided the data I needed for products. This allowed me to focus on the frontend experience without worrying about backend development.
 
-To learn more about Next.js, take a look at the following resources:
+## Search Functionality
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+One notable feature I'm still refining is the search functionality. Currently, it's not fully optimized and responsive as it relies on searching through a JSON file. I'm aware that using a SQL database would be a more efficient solution for search, and it's something I plan to explore in future iterations.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+<!-- Replace these with links to your project screenshots -->
+![Shopazone Screenshot 1](./landing-page.png)
+![Shopazone Screenshot 2](./product-page.png)
+![Shopazone Screenshot 2](./cart.png)
+![Shopazone Screenshot 2](./checkout.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+While this project served as a learning opportunity and a chance to experiment with Next.js, I have plans to enhance and refine it further. Here are some of the areas I'll be looking into:
+
+- **Optimizing Search:** Implementing a more efficient search mechanism using a SQL database.
+- **Improving UI/UX:** Enhancing the overall user interface and user experience.
+- **Adding New Features:** Expanding the feature set and adding more functionality to make Shopazone even more user-friendly.
+
+Feel free to explore the codebase and contribute to the project. Your feedback and contributions are highly appreciated!
+
+Thank you for checking out Shopazone!
