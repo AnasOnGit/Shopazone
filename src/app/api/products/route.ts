@@ -6,7 +6,7 @@ export async function GET(request:any,) {
 
   
   // Extract the "limit" parameter from the query parameters
-  const limit = request.nextUrl.searchParams.get('limit');;
+  const limit = request.nextUrl.searchParams.get('limit');
 
   if (limit) {
     // Parse the limit parameter as an integer
