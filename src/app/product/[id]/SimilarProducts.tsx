@@ -8,12 +8,28 @@ interface Props {
   category: string;
 }
 
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+};
+
+type QueryResult = {
+  isLoading: boolean;
+  error: any;
+  data?: Product[];
+};
+
+
 function SimilarProducts({id, category }: Props) {
   const {
     isLoading,
     error,
     data: similarProductsList,
-  } = useQuery({
+  }: QueryResult = useQuery({
     queryKey: ["suggestions"],
     queryFn: () =>
       fetch(`https://fakestoreapi.com/products/category/${category}`).then(
@@ -35,7 +51,7 @@ function SimilarProducts({id, category }: Props) {
         <ProductPreviewCardSkeleton />
         <ProductPreviewCardSkeleton />
          </>
-      ):similarProductsList.map((product: any) => {
+      ):similarProductsList?.map((product: any) => {
          return product.id === id ? null :  <ProductPreviewCard product={product} key={product.id} />;
         })}
         </div>

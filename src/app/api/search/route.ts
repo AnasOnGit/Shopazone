@@ -1,6 +1,12 @@
 import { NextResponse } from 'next/server';
 import products from "../products.json";
 
+interface Product {
+  title: string;
+  category: string;
+  // Add other fields as needed
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   
@@ -27,7 +33,7 @@ export async function GET(request: Request) {
 }
 
 // Function to filter products based on the search term and category
-function searchProducts(products, searchWords, category) {
+function searchProducts(products: Product[], searchWords: string[], category: string | null): Product[] {
   return products.filter(product => {
     // Check if any word in the search term is found in the product title
     const matchesSearchTerm = searchWords.length === 0 ||
@@ -40,3 +46,7 @@ function searchProducts(products, searchWords, category) {
     return matchesSearchTerm && matchesCategory;
   });
 }
+
+
+
+

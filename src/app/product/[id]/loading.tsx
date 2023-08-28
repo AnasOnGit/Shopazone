@@ -1,6 +1,6 @@
 import React from "react";
 
-async function Loading({ params }) {
+async function Loading() {
 
     return (
         <>

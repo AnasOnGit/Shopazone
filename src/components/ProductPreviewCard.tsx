@@ -57,9 +57,9 @@ function ProductPreviewCard({ product }: { product: Props }): ReactElement {
           </Link>
         <div className="flex-1"></div>
         <AddToCartProductPreview
+          productId={product.id.toString()}
           name={product.title}
           price={product.price}
-          productId={product.id}
           image={product.image}
           limitPerUser={5}
           

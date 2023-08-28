@@ -34,7 +34,7 @@ function Header() {
           />
         </Link>
       </div>
-      <SearchBar className="hidden md:flex"  setShowSearchBar={setShowSearchBar}/>
+      <SearchBar size={20} className="hidden md:flex"  setShowSearchBar={setShowSearchBar}/>
       <CartHeader />
       <SearchBarCatergoryMenu setShowSearchBar={setShowSearchBar} showSearchBar={showSearchBar} />
     </header>
@@ -78,16 +78,11 @@ function SearchBar({ className='', size=20,setShowSearchBar }: { className: stri
             flex-1
             w-full
             font-family-cuprum focus-within:border-orange-600 "
-        type="search"
-        alt="search"
-        placeholder="Search"
-        name="search"
-        // disabled={true}
-        autoComplete={false}
+      
 
         onClick={()=>setShowSearchBar(true)}
       >Search</div>
-      <button type="submit" className="cursor-pointer" title="Search" alt="Search">
+      <button type="submit" className="cursor-pointer" title="Search">
         <GoSearch size={size} color={"gray"} />
       </button>
     </form>
@@ -118,7 +113,7 @@ const SearchBarForSmartPhone = ({ className,showSearchBar:ssb }: { className: st
 };
 
 
-const SearchBarCatergoryMenu = ({showSearchBar,setShowSearchBar}) => {
+const SearchBarCatergoryMenu = ({showSearchBar,setShowSearchBar}: any) => {
   const categories = [
     { name: 'Electronics', image: '/electronics.jpg' ,search:"electronics"},
     { name: "Men's Clothing", image: '/mens-clothing.jpg',search:"men's clothing" },

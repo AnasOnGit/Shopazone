@@ -37,11 +37,13 @@ function AddToCartProductPage({
   image,
   limitPerUser,
 }: Props): ReactElement {
-  const dispatch = useDispatch();
 
+
+  const dispatch = useDispatch();
+  let oldState = useSelector((state:any) => state.cart.CartDrawer)
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={(e: any ) => {
         e.preventDefault();
         dispatch(
           add({
@@ -53,7 +55,8 @@ function AddToCartProductPage({
             image,
           })
         );
-        dispatch(toggleCartDrawer());
+        
+        dispatch(toggleCartDrawer(!oldState));
       }}
       className=" flex flex-row md:flex-row-reverse items-center justify-center md:justify-around  md:border-none border  md:m-4 md:mt-0 p-2 rounded md:shadow-none shadow-md md:items-end self-center md:relative fixed bottom-0 bg-white z-40 md:w-[250px] w-[100%] gap-2 h-24  justify-self-center left-0 "
     >
@@ -89,7 +92,7 @@ function AddToCartProductPage({
 }
 
 export function CartHeader() {
-  const count = useSelector((state) => state.cart.totalItems);
+  const count = useSelector((state:any) => state.cart.totalItems);
   const dispatch = useDispatch();
   return (
     <div
@@ -111,7 +114,7 @@ export function CartDrawer() {
   const cart = useSelector((state: any) => state.cart.cartItems);
 
   // if (!isVisible) null;
-
+  let oldState = useSelector((state:any) => state.cart.CartDrawer)
   return (
     // slide in menu if visible is true
     <div className={` flex-row w-full flex`}>
@@ -157,7 +160,7 @@ export function CartDrawer() {
             <div className="flex flex-col gap-2 w-[60%]">
               <Link
                 href="/checkout"
-                onClick={() => dispatch(toggleCartDrawer())}
+                onClick={() => dispatch(toggleCartDrawer(!oldState))}
                 className="bg-blue-800 text-white p-2 rounded hover:shadow text-2xl md:text-xl "
               >
                 Checkout
@@ -206,8 +209,9 @@ export const AddToCartProductPreview = ({
   );
 };
 
-export function SingleCartItemCard({ item }) {
+export function SingleCartItemCard({ item } :any) {
   const dispatch = useDispatch();
+  let oldState = useSelector((state:any) => state.cart.CartDrawer)
   return (
     <div
       key={item.id}
@@ -223,7 +227,7 @@ export function SingleCartItemCard({ item }) {
         />
         <div className="flex flex-col flex-1">
           <Link
-            onClick={() => dispatch(toggleCartDrawer())}
+            onClick={() => dispatch(toggleCartDrawer(!oldState))}
             href={`/product/${item.id}`}
             className="font-bold w-full"
           >
@@ -274,7 +278,7 @@ export function SingleCartItemCard({ item }) {
               alt={`Increase Quantity - Current Quantity (${item.quantity})`}
             />
 
-            <p className="text-gray-500" title="Unit Price" alt="Unit Price">
+            <p className="text-gray-500" title="Unit Price" >
               X SAR {item.price}
             </p>
             {/* <button onClick={() => dispatch(remove({ id: item.id, quantity: -1, limitPerUser: 10, price: item.price, name: item.name, image: item.image }))}>-</button> */}
@@ -284,7 +288,6 @@ export function SingleCartItemCard({ item }) {
       <p
         className="text-sm text-green-500 font-bold "
         title={`Total price - SAR ${item.price * item.quantity}`}
-        alt={`Total price - SAR ${item.price * item.quantity}`}
       >
         SAR {item.price * item.quantity}
       </p>
@@ -312,7 +315,7 @@ export function CartItems() {
           <p
             className="text-right text-red-500 cursor-pointer hover:underline hover:text-red-700 mr-3 mt-3"
             onClick={() => {
-              // show a promot to ask user if they want to clear the cart or not
+             
               if (
                 confirm(
                   "You are about to remove everything from the cart. Are you sure you want to proceed?"

@@ -3,6 +3,22 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import ProductPreviewCard,{ProductPreviewCardSkeleton} from "@/components/ProductPreviewCard";
 
+
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+};
+
+type QueryResult = {
+  isLoading: boolean;
+  error: any;
+  data?: Product[];
+};
+
 interface Props {
     id:string;
 }
@@ -13,7 +29,7 @@ function PeopleAlsoBuy({ id  }: Props) {
     isLoading,
     error,
     data: suggestedProductsList,
-  } = useQuery({
+  } : QueryResult = useQuery({
     queryKey: ["psb"],
     queryFn: () =>
       fetch(`https://fakestoreapi.com/products?limit=8`).then(
@@ -35,7 +51,7 @@ function PeopleAlsoBuy({ id  }: Props) {
        <ProductPreviewCardSkeleton />
        <ProductPreviewCardSkeleton />
         </>
-      ):suggestedProductsList.map((product: any) => {
+      ):suggestedProductsList?.map((product: any) => {
           return product.id === id ? null : <ProductPreviewCard product={product} key={product.id} />;
         })}
         </div>

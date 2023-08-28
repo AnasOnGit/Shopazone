@@ -1,4 +1,3 @@
-'use client'
 import { use, useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useQuery } from "@tanstack/react-query";
@@ -7,11 +6,12 @@ import ProductPreviewCard, { ProductPreviewCardSkeleton } from "@/components/Pro
 export default function NavigationEvents() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState<string>(""); // Add type string here
+
     useEffect(() => {
         let term = searchParams.get("search-term");
         let category = searchParams.get("category");
-        setCategory(category);
+        setCategory(category || ""); // Add a fallback value here
 
     }, [searchParams]);
 
@@ -19,7 +19,7 @@ export default function NavigationEvents() {
         isLoading,
         error,
         data: searchResult,
-    } = useQuery(["search"], () =>
+    } = useQuery<any, Error>(["search"], () => // Add types for data and error
         fetch(`https://fakestoreapi.com/products/category/${category}`).then((result) => {
             if (!result.ok) {
                 throw new Error("Network response was not ok");
@@ -32,7 +32,6 @@ export default function NavigationEvents() {
         console.log(error);
         return "An error has occurred: " + error.message;
     }
-
 
     return (
         <div className="m-4">

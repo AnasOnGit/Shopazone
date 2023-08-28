@@ -11,7 +11,7 @@ async function CheckoutPage({  }: Props) {
    
         <div className="md:w-[50%] min-h-[95%]">
             <p className="md:m-4 mb-0 text-2xl font-bold text-gray-600">Cart</p>
-            <div className="w-full md:m-4 border rounded min-h-full md:mt-0 flex justify-center items-center">
+            <div className="w-full md:m-4 border rounded min-h-full md:mt-0  ">
                 <CartItems />
             </div>
         </div>
