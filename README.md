@@ -2,7 +2,7 @@
 
 ![Shopazone Logo](./public/logo.png) 
 
-Welcome to Shopazone, an experimental e-commerce project built with Next.js, TypeScript, Tailwind CSS, React Query (Transquery), and Redux. This project served as my exploration of the latest features and capabilities offered by Next.js.
+Welcome to Shopazone, an experimental e-commerce project built with Next.js, TypeScript, Tailwind CSS, React Query (Tansquery), and Redux. This project served as my exploration of the latest features and capabilities offered by Next.js .
 
 ## Project Overview
 

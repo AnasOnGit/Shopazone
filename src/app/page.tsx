@@ -1,14 +1,8 @@
 // "use client"
-import { redirect } from 'next/navigation';
-import Image from 'next/image'
+import ProductPreviewCard, { ProductPreviewCardSkeleton } from '@/components/ProductPreviewCard';
+import Image from 'next/image';
 import Link from 'next/link';
-import { FiShoppingCart } from "react-icons/fi"
-import { AiFillStar } from "react-icons/ai"
-import {
-  useQuery,
-} from '@tanstack/react-query'
-import ProductPreviewCard, {ProductPreviewCardSkeleton} from '@/components/ProductPreviewCard';
-import {Suspense} from "react";
+import { Suspense } from "react";
 // get products from api function with typescript
 type Product = {
   id: number;
@@ -19,12 +13,6 @@ type Product = {
   image: string;
 }
 
-// const products  = async() =>{
-//   const product = await fetch('https://fakestoreapi.com/products');
-//   const data = await product.json();
-//   // console.log(data)
-//   return data;
-// }
 
 export default async function Home() {
 
@@ -37,19 +25,6 @@ export default async function Home() {
 
  const productData = await fetch(process.env.URL + '/api/products');
   const productsList = await productData.json();
-
-  // const { isLoading, error, data: productsList } = useQuery({
-  //   queryKey: ['products'],
-  //   queryFn: () =>
-  //     fetch('https://fakestoreapi.com/products').then(
-  //       (res) => res.json(),
-  //     ),
-  //     suspense: true,
-  // })
-
-  // if (isLoading) return 'Loading...'
-
-  // if (error) return 'An error has occurred: ' + error.message; // set type for error
 
   type Product = {
     id: number;

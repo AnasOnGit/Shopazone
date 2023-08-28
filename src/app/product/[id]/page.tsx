@@ -1,4 +1,3 @@
-// "use client";
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -43,23 +42,6 @@ async function ProductPage({ params }: Props) {
 
   // Create the delivery message
   const deliveryMessage = `Order now and get delivery between ${minDeliveryDateString} - ${maxDeliveryDateString}.`;
-
-
-  // const {
-  //   isLoading,
-  //   error,
-  //   data: productInfo,
-  // } = useQuery({
-  //   queryKey: ["productInfo"],
-  //   queryFn: () =>
-  //     fetch(`https://fakestoreapi.com/products/${params.id}`).then((res) =>
-  //       res.json()
-  //     ),
-  // });
-
-  // if (isLoading) return "Loading...";
-  // if (error) return "An error has occurred: " + error.message; // set type for error
-
   const productData = await fetch(
     process.env.URL + `/api/products/${params.id}`
   );
@@ -72,11 +54,9 @@ async function ProductPage({ params }: Props) {
       {/* main section */}
       <div  className="flex md:flex-row flex-col  justify-center md:justify-start ">
         {/* first deatil section */}
-        {/* <div className='flex flex-col justify-between md:flex-row border flex-1'> */}
         <div className="flex-1 grid md:grid-cols-[230px,auto] md:grid-rows-[2, auto]  justify-items-start content-start m-4">
           {/* image gallery */}
           <div className="w-[100%] h-[300px] md:m-4 border flex justify-center items-center p-2 md:w-[200px] md:h-[300px] order-2 md:order-1 row-span-2 col-span-1">
-            {/* <div className="w-[100%] h-[300px] md:m-4 border flex justify-center items-center p-2 md:w-[200px] md:h-[300px] order-2 md:order-1 row-span-2 col-span-1" > */}
             <Image
               src={productInfo.image}
               alt={productInfo.title}
@@ -104,7 +84,6 @@ async function ProductPage({ params }: Props) {
                 className="flex flex-row items-center"
                 title={`${productInfo?.rating?.rate} stars rating`}
               >
-                {/* <BiSolidStar color="gold" /> */}
                 {/* show all rating stars if star is not full show half star, if the rating is 3 for star 4 and 5 show e,pty star */}
                 {Array.from({ length: 5 }, (_, i) => i + 1).map((star) => {
                   return star <= productInfo?.rating?.rate ? (

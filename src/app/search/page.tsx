@@ -7,24 +7,11 @@ import ProductPreviewCard, { ProductPreviewCardSkeleton } from "@/components/Pro
 export default function NavigationEvents() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-//   const [searchUrl, setSearchUrl] = useState("");
-//   const [loading, setLoading] = useState(false);
     const [category, setCategory] = useState("");
   useEffect(() => {
     let term = searchParams.get("search-term");
     let category = searchParams.get("category");
     setCategory(category);
-    // let search = "/api/search";
-    // if (term && category) {
-    //   search += `?search-term=${term}&category=${category}`;
-    // } else if (term) {
-    //   search += `?search-term=${term}`;
-    // } else if (category) {
-    //   search += `?category=${category}`;
-    // }
-
-    // setSearchUrl(search);
-    // setLoading(true);
 
   }, [searchParams]);
 
@@ -46,16 +33,6 @@ export default function NavigationEvents() {
     return "An error has occurred: " + error.message;
   }
 
-//   if (isLoading && loading) {
-//     return (
-//       <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-//         <ProductPreviewCardSkeleton />
-//         <ProductPreviewCardSkeleton />
-//         <ProductPreviewCardSkeleton />
-//         <ProductPreviewCardSkeleton />
-//       </div>
-//     );
-//   }
 
   return (
     <div className="m-4">

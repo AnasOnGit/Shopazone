@@ -1,15 +1,4 @@
-// "use client";
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
-import Link from "next/link";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  add,
-  remove,
-  toggleCartDrawer,
-  clearCart,
-} from "@/redux/features/cart/cartSlice";
 import {CartItems,CartTotalCalculation} from "@/components/CartActions";
 interface Props {
   params: { };
@@ -22,7 +11,7 @@ async function CheckoutPage({  }: Props) {
    
         <div className="md:w-[50%] min-h-[95%]">
             <p className="md:m-4 mb-0 text-2xl font-bold text-gray-600">Cart</p>
-            <div className="w-full md:m-4 border rounded min-h-full md:mt-0">
+            <div className="w-full md:m-4 border rounded min-h-full md:mt-0 flex justify-center items-center">
                 <CartItems />
             </div>
         </div>

@@ -134,18 +134,7 @@ export function CartDrawer() {
           >
             Continue Shopping
           </button>
-          {/* <button  onClick={() => dispatch(toggleCartDrawer(false))} className="bg-green-600 text-white p-2 rounded hover:shadow w-[95%] h-16 text-2xl md:text-xl flex-1 w-full">Continue Shopping</button> */}
-          {/* <div
-            className="cursor-pointer 
-        hover:text-red-500"
-          >
-            <TbSquareRoundedX
-              title={"Close"}
-              size={42}
-              onClick={() => dispatch(toggleCartDrawer(false))}
-            />
-          </div> */}
-          {/* <button onClick={() => dispatch(toggleCartDrawer())}>X</button> */}
+          
         </div>
         <hr />
         <CartItems />
@@ -304,7 +293,7 @@ export function SingleCartItemCard({ item }) {
 }
 const EmptyCart = () => {
   return (
-    <div className="h-full flex flex-col w-full items-center justify-center flex-1">
+      <div className="h-full flex flex-col w-full items-center justify-center flex-1">
       <Lottie animationData={emptyCart} />
       <p className="text-center text-2xl font-bold">Your cart is empty</p>
     </div>
@@ -386,178 +375,6 @@ export function CartTotalCalculation() {
     </div>
   );
 }
-// // create a component that will slide from right on desktop and slide from botton on mobile when user click on cart icon and it will show items in cart and ask if they want to checkout or continue shopping it will also have a button to close the cart it will take a prop to open it or close it also show cart total and total items in cart
-// // this is next js so use next image and next link and make sure to use table and display total below
-// const CartMenu = ({ open }) => {
-//   const cart = useSelector((state) => state.cart.cartItems);
-//   const dispatch = useDispatch();
-//   return (
-//     <div
-//       className={`fixed top-0 right-0 h-screen w-[400px] bg-white shadow-md z-50 transform transition-all duration-500 ${
-//         open ? "translate-x-0" : "translate-x-full"
-//       }`}
-//     >
-//       <div className="flex flex-row justify-between items-center p-4">
-//         <h1 className="font-bold text-2xl">Cart</h1>
-//         <button
-//           onClick={() => {
-//             dispatch({ type: "cart/toggleCart" });
-//           }}
-//         >
-//           X
-//         </button>
-//       </div>
-//       <div className="flex flex-col gap-2">
-//         {cart.map((item) => {
-//           return (
-//             <div key={item.id} className="flex flex-row justify-between items-center p-4">
-//               <div className="flex flex-row gap-2 items-center">
-//                 <img
-//                   src={item.image}
-//                   alt={item.name}
-//                   className="w-[50px] h-[50px] object-contain object-center"
-//                 />
-//                 <div className="flex flex-col">
-//                   <p className="font-bold">{item.name}</p>
-//                   <p className="text-sm text-gray-500">{item.price}</p>
-//                 </div>
-//               </div>
-//               <div className="flex flex-row gap-2 items-center">
-//                 <button
-//                   onClick={() => {
-//                     dispatch({ type: "cart/increment", payload: item.id });
-//                   }}
-//                 >
-//                   +
-//                 </button>
-//                 <p>{item.quantity}</p>
-//                 <button
-//                   onClick={() => {
-//                     dispatch({ type: "cart/decrement", payload: item.id });
-//                   }}
-//                 >
-//                   -
-//                 </button>
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-// const CartMenu = ({ open }) => {
-//   const cart = useSelector((state) => state.cart.cartItems);
-//   const dispatch = useDispatch();
-//   return (
-//     <div
-//       className={`fixed top-0 right-0 h-screen w-[400px] bg-white shadow-md z-50 transform transition-all duration-500 ${
-//         open ? "translate-x-0" : "translate-x-full"
-//       }`}
-//     >
-//       <div className="flex flex-row justify-between items-center p-4">
-//         <h1 className="font-bold text-2xl">Cart</h1>
-//         <button
-//           onClick={() => {
-//             dispatch({ type: "cart/toggleCart" });
-//           }}
-//         >
-//           X
-//         </button>
-//       </div>
-//       <div className="flex flex-col gap-2">
-//         {cart.map((item) => {
-//           return (
-//             <div key={item.id} className="flex flex-row justify-between items-center p-4">
-//               <div className="flex flex-row gap-2 items-center">
-//                 <img
-//                   src={item.image}
-//                   alt={item.name}
-//                   className="w-[50px] h-[50px] object-contain object-center"
-//                 />
-//                 <div className="flex flex-col">
-//                   <p className="font-bold">{item.name}</p>
-//                   <p className="text-sm text-gray-500">{item.price}</p>
-//                 </div>
-//               </div>
-//               <div className="flex flex-row gap-2 items-center">
-//                 <button
-//                   onClick={() => {
-//                     dispatch({ type: "cart/increment", payload: item.id });
-//                   }}
-//                 >
-//                   +
-//                 </button>
-//                 <p>{item.quantity}</p>
-//                 <button
-//                   onClick={() => {
-//                     dispatch({ type: "cart/decrement", payload: item.id });
-//                   }}
-//                 >
-//                   -
-//                 </button>
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// };
 
-// const CartMenu = () => {
-//   const cart = useSelector((state) => state.cart.cartItems);
-//   const dispatch = useDispatch();
-//   return (
-//     <div className="fixed top-0 right-0 h-screen w-[400px] bg-white shadow-md z-50">
-//       <div className="flex flex-row justify-between items-center p-4">
-//         <h1 className="font-bold text-2xl">Cart</h1>
-//         <button
-//           onClick={() => {
-//             dispatch({ type: "cart/toggleCart" });
-//           }}
-//         >
-//           X
-//         </button>
-//       </div>
-//       <div className="flex flex-col gap-2">
-//         {cart.map((item) => {
-//           return (
-//             <div key={item.id} className="flex flex-row justify-between items-center p-4">
-//               <div className="flex flex-row gap-2 items-center">
-//                 <img
-//                   src={item.image}
-//                   alt={item.name}
-//                   className="w-[50px] h-[50px] object-contain object-center"
-//                 />
-//                 <div className="flex flex-col">
-//                   <p className="font-bold">{item.name}</p>
-//                   <p className="text-sm text-gray-500">{item.price}</p>
-//                 </div>
-//               </div>
-//               <div className="flex flex-row gap-2 items-center">
-//                 <button
-//                   onClick={() => {
-//                     dispatch({ type: "cart/increment", payload: item.id });
-//                   }}
-//                 >
-//                   +
-//                 </button>
-//                 <p>{item.quantity}</p>
-//                 <button
-//                   onClick={() => {
-//                     dispatch({ type: "cart/decrement", payload: item.id });
-//                   }}
-//                 >
-//                   -
-//                 </button>
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
 
 export default AddToCartProductPage;

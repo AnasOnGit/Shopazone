@@ -97,16 +97,7 @@ export const cartSlice = createSlice({
   },
 });
 
-// // caluate cart total
-// export const calculateTotal = (state) => {
-//     let total = 0;
-//     state.cartItems.reduce((acc, item) => {
-//         total += item.price * item.quantity;
-//         return total;
-//     }, 0);
-//     return total;
-// };
-// Action creators are generated for each case reducer function
+
 export const { add, remove, calculateCartTotal,toggleCartDrawer,clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

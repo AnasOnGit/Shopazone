@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FiShoppingCart } from "react-icons/fi";
 import { AiFillStar } from "react-icons/ai";
 import React, { ReactElement } from "react";
 import {AddToCartProductPreview} from "./CartActions";
@@ -20,8 +19,6 @@ interface Props {
 
 function ProductPreviewCard({ product }: { product: Props }): ReactElement {
   
-  // if(true) {return <ProductPreviewCardSkeleton />}
-
   return (
     <div
       
@@ -71,42 +68,6 @@ function ProductPreviewCard({ product }: { product: Props }): ReactElement {
     </div>
   );
 
-
- 
-
-
-  // only price product image, title price and add to cart button and add hover effect and limit word limit in title
-  // return(
-  //   // add hover animation on card
-  //   <Link href={`/product/${product.id}`} className="flex flex-col justify-center items-center border p-4 rounded
-  //   w-60 h-80 hover:shadow-lg
-  //   ">
-
-  //       <div className="h-40">
-  //       <Image
-  //       src={product.image}
-  //       width={150}
-  //       height={150}
-  //       alt={product.title}
-  //   //     layout='fill'
-  //   // objectFit='contain'
-  //       className='object-fit object-center w-full h-full'
-  //       />
-  //       </div>
-  //       <div className="h-2"></div>
-  //       <h1 className="text-lg font-bold">{product.title.slice(0,10)}...</h1>
-  //       <div
-  //       className="flex flex-row"
-  //       >
-  //         <p className="text-lg font-bold">${product.price}</p>
-  //         {/* add to cart */}
-  //         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >
-  //         Add to Cart
-  //       </button>
-
-  //       </div>
-  //   </Link>
-  // )
 }
 
 export function ProductPreviewCardSkeleton(){
@@ -127,22 +88,5 @@ export function ProductPreviewCardSkeleton(){
   </div>
   );
 }
-
-{/* <div className="flex flex-1 flex-col animate-pulse bg-slate-500 my-3 rounded"/>
-<div className="h-2 w-2 rounded-full bg-red-500 " />
-   
-<div className="flex-1"></div> */}
-// style on hover make the card bigger
-// hover:scale-105
-// transition-all
-// duration-500
-// ease-in-out
-// transform
-// hover:z-10
-// hover:shadow-2xl
-// hover:border-transparent
-// hover:border-2
-// hover:border-blue-500
-// hover:rounded-xl
 
 export default ProductPreviewCard;

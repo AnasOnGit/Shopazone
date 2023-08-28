@@ -2,14 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from 'react';
-import { HiOutlineSearch, HiOutlineShoppingBag } from "react-icons/hi";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import { CiSearch } from "react-icons/ci";
 import { GoSearch } from "react-icons/go";
-import { IoIosCloseCircleOutline } from "react-icons/io";
 import { TbSquareRoundedX } from "react-icons/tb";
 import { useRouter } from 'next/navigation'
 import { CartHeader } from "./CartActions";
-import { is } from './../../.next/static/chunks/fallback/amp';
+
 
 function Header() {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -101,25 +100,6 @@ const SearchBarForSmartPhone = ({ className,showSearchBar:ssb }: { className: st
   const [searchValue, setSearchValue] = useState("");
 
 
-//   const menuRef = useRef(null);
-
-//   useEffect(() => {
-//     // Function to close the search menu when scrolling outside the menu
-//     const handleScroll = (e:any) => {
-//       if (showSearchBar && !menuRef?.current.contains(e.target)) {
-//         setShowSearchBar(false);
-//       }
-//     };
-
-//     // Add scroll event listener when the component mounts
-//     window.addEventListener('scroll', handleScroll);
-
-//     // Remove the scroll event listener when the component unmounts
-//     return () => {
-//       window.removeEventListener('scroll', handleScroll);
-//     };
-//   }, [showSearchBar]);
-
   return (
     <div className="relative" 
     // ref={menuRef}
@@ -169,18 +149,7 @@ const SearchBarCatergoryMenu = ({showSearchBar,setShowSearchBar}) => {
         <div className="flex w-full justify-center items-center mt-16">
         {/* <SearchBar className="w-[80%] py-3" size={30} setShowSearchBar={setShowSearchBar} /> */}
         </div>
-        {/* <form className="mt-16  flex items-center justify-center">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-64 p-2 rounded-lg border border-gray-300 focus:outline-none"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-          <button className="ml-2 p-2 bg-blue-500 text-white rounded-lg w-[86px]">
-            Search
-          </button>
-        </form> */}
+       
          {/* Title */}
          <p className="text-center mt-6 text-xl font-bold">Quick Search</p>
         {/* Quick search categories */}
@@ -203,13 +172,6 @@ const SearchBarCatergoryMenu = ({showSearchBar,setShowSearchBar}) => {
        
       </div>
   );
-          }
-
-
-   
-
-   
-
- 
+}
 
 export default Header;

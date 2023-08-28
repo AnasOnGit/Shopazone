@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
-import Link from "next/link";
 import ProductPreviewCard,{ProductPreviewCardSkeleton} from "@/components/ProductPreviewCard";
 
 interface Props {
@@ -23,7 +21,6 @@ function SimilarProducts({id, category }: Props) {
       ),
   });
 
-  // if (isLoading) return (<ProductPreviewCardSkeleton/>);
   if (error) return "An error has occurred: " + error.message; // set type for error
 
   return (
