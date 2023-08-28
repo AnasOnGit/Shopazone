@@ -1,3 +1,4 @@
+'use client'
 import { use, useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useQuery } from "@tanstack/react-query";
