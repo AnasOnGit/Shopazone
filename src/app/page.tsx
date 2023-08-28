@@ -62,7 +62,7 @@ export default async function Home() {
       font-bold
       text-center
       
-      ' >Today's Deals</p>
+      ' >Todays Deals</p>
       <div className="h-2"></div>
       <div className="flex flex-wrap gap-3 justify-center align-center " >
         {
