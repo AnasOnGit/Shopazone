@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
 import products from '../products.json';
 
-export async function GET(request:Request,) {
-  const { searchParams } = new URL(request.url);
+export async function GET(request:any,) {
+  // const { searchParams } = new URL(request.url);
 
+  
   // Extract the "limit" parameter from the query parameters
-  const limit = searchParams.get('limit');
+  const limit = request.nextUrl.searchParams.get('limit');;
 
   if (limit) {
     // Parse the limit parameter as an integer

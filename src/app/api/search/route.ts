@@ -7,12 +7,12 @@ interface Product {
   // Add other fields as needed
 }
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+export async function GET(request: any) {
+  // const { searchParams } = new URL(process.env.URL + request.url);
   
   // Extract the search term and category from the query parameters
-  const searchTerm = searchParams.get('search-term');
-  const category = searchParams.get('category');
+  const searchTerm = request.nextUrl.searchParams.get('search-term');
+  const category = request.nextUrl.searchParams.get('category');
 
   // Split the search term into individual words
   const searchWords = searchTerm ? searchTerm.split(" ") : [];
