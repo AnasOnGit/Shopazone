@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
  
 export async function GET(request: Request,{params}:{params: {id: string}}) {
   let productsRes = await fetch(`${process.env.NEXT_URL}/products.json`);
-  let products = await productsRes.json(); 
+  let products:any = await productsRes.json(); 
   const product = products.find((p :any)  => p.id === parseInt(params.id));
 
     if (product) {

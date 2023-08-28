@@ -9,7 +9,7 @@ interface Product {
 
 export async function GET(request: any) {
   let productsRes = await fetch(`${process.env.NEXT_URL}/products.json`);
-  let products = await productsRes.json();
+  let products:any = await productsRes.json();
   // Extract the search term and category from the query parameters
   const searchTerm = request.nextUrl.searchParams.get('search-term');
   const category = request.nextUrl.searchParams.get('category');
