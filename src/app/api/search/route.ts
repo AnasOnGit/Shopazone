@@ -27,25 +27,24 @@ export async function GET(request: any) {
     return NextResponse.json(searchResults, { status: 200 });
   } else {
     // Return an empty JSON response with a 404 status code
-    console.log({}, { status: 404 });
-    return NextResponse.json({}, { status: 404 });
+    return NextResponse.json({message:"No products found!"}, { status: 404 });
+  }
+  // Function to filter products based on the search term and category
+  function searchProducts(products: Product[], searchWords: string[], category: string | null): Product[] {
+    return products.filter(product => {
+      // Check if any word in the search term is found in the product title
+      const matchesSearchTerm = searchWords.length === 0 ||
+        searchWords.some(word => product.title.toLowerCase().includes(word.toLowerCase()));
+  
+      // Check if the product belongs to the specified category
+      const matchesCategory = !category || product.category.toLowerCase() === category.toLowerCase();
+  
+      // Return true if both conditions are met
+      return matchesSearchTerm && matchesCategory;
+    });
   }
 }
 
-// Function to filter products based on the search term and category
-function searchProducts(products: Product[], searchWords: string[], category: string | null): Product[] {
-  return products.filter(product => {
-    // Check if any word in the search term is found in the product title
-    const matchesSearchTerm = searchWords.length === 0 ||
-      searchWords.some(word => product.title.toLowerCase().includes(word.toLowerCase()));
-
-    // Check if the product belongs to the specified category
-    const matchesCategory = !category || product.category.toLowerCase() === category.toLowerCase();
-
-    // Return true if both conditions are met
-    return matchesSearchTerm && matchesCategory;
-  });
-}
 
 
 

@@ -10,7 +10,6 @@ export async function GET(request: Request,{params}:{params: {id: string}}) {
       // If a matching product is found, return it as JSON
       return NextResponse.json(product, { status: 200 });
     } else {
-      // If no matching product is found, return a 404 error response
-      return NextResponse.json({});
+      return NextResponse.json({message:"No products found!"}, { status: 404 });
     }
 }

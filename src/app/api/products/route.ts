@@ -16,8 +16,7 @@ export async function GET(request:any,) {
 
       return NextResponse.json(limitedProducts, { status: 200 });
     } else {
-      // If the "limit" parameter is not a valid positive integer, return a 400 error response
-      return NextResponse.error();
+      return NextResponse.json({message:"No products found!"}, { status: 404 });
     }
   } else {
     // If no "limit" parameter is provided, return the list of all products
