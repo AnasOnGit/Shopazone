@@ -114,7 +114,7 @@ export function CartDrawer() {
   const cart = useSelector((state: any) => state.cart.cartItems);
 
   // if (!isVisible) null;
-  let oldState = useSelector((state:any) => state.cart.CartDrawer)
+
   return (
     // slide in menu if visible is true
     <div className={` flex-row w-full flex`}>
@@ -160,7 +160,7 @@ export function CartDrawer() {
             <div className="flex flex-col gap-2 w-[60%]">
               <Link
                 href="/checkout"
-                onClick={() => dispatch(toggleCartDrawer(!oldState))}
+                onClick={() => dispatch(toggleCartDrawer(false))}
                 className="bg-blue-800 text-white p-2 rounded hover:shadow text-2xl md:text-xl "
               >
                 Checkout
@@ -211,7 +211,7 @@ export const AddToCartProductPreview = ({
 
 export function SingleCartItemCard({ item } :any) {
   const dispatch = useDispatch();
-  let oldState = useSelector((state:any) => state.cart.CartDrawer)
+
   return (
     <div
       key={item.id}
@@ -227,7 +227,7 @@ export function SingleCartItemCard({ item } :any) {
         />
         <div className="flex flex-col flex-1">
           <Link
-            onClick={() => dispatch(toggleCartDrawer(!oldState))}
+            onClick={() => dispatch(toggleCartDrawer(false))}
             href={`/product/${item.id}`}
             className="font-bold w-full"
           >
