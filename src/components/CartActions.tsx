@@ -380,4 +380,10 @@ export function CartTotalCalculation() {
 }
 
 
+export function CheckoutButton(){
+  return(
+    <button className="bg-red-500 px-[10px] py-[5px] text-white rounded-full hover:bg-red-700" onClick={()=>{alert("Thank You for Shopping with Shopazone!")}}>Checkout </button>
+  )
+}
+
 export default AddToCartProductPage;

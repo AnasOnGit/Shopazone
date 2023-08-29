@@ -1,5 +1,5 @@
 import React from "react";
-import {CartItems,CartTotalCalculation} from "@/components/CartActions";
+import {CartItems,CartTotalCalculation,CheckoutButton} from "@/components/CartActions";
 interface Props {
   params: { };
 }
@@ -23,7 +23,7 @@ async function CheckoutPage({  }: Props) {
                 <CartTotalCalculation />
             </div>
             <div className="md:m-4 mb-0 flex flex-row justify-end mt-3">
-            <button className="bg-red-500 px-[10px] py-[5px] text-white rounded-full hover:bg-red-700">Checkout </button>
+            <CheckoutButton />
             </div>
             </>
         </div>
